@@ -1,6 +1,6 @@
 # dampf
 
-1 nices projekt vong programmierung her
+1 sehr nices projekt vong programmierung her
 
 # contributors:
 
