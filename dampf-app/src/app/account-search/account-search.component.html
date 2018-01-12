@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="header">
+    <h2 class="title">Account Search</h2>
+  </div>
+  <div class="content">
+    <form>
+      <div class="form-group">
+        <label>Nickname:</label>
+        <input [(ngModel)]="nickname" name="nickname" class="form-control">
+      </div>
+      <div class="form-group">
+        <button
+          [disabled]="!nickname"
+          (click)="search()"
+          class="btn btn-default">Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <table class="table table-contensed" *ngIf="accounts.length > 0">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nickname</th>
+      <th>Loginname</th>
+      <th>RegisterDate</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let account of accounts"
+        [class.active]="a === selectedAccount">
+      <td>{{a.id}}</td>
+      <td>{{a.nickname }}</td>
+      <td>{{a.loginname }}</td>
+      <td>{{a.registerdate | date:'dd.MM.yyyy HH:mm'}}</td>
+      <td>
+        <a (click)="select(f)">Select</a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="content">
+    <pre>{{ selectedAccount | json }}</pre>
+  </div>
+</div>
