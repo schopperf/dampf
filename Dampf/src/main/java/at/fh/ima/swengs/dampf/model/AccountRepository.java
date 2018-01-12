@@ -5,7 +5,7 @@ package at.fh.ima.swengs.dampf.model;
 
 
 @RepositoryRestResource()
-public interface AccountRepository  extends PagingAndSortingRepository<Account, Long> {
+public interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 
 
 }
