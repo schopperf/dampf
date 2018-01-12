@@ -16,18 +16,10 @@ export class AccountSearchComponent implements OnInit
 
   nickname: string;
   accounts: Array<Account> = [];
-  selectedAccount: Account;
 
   constructor(private http: HttpClient) {
     console.log("AccountSearch Constructor");
   }
-
-
-  select(a: Account): void {
-    this.selectedAccount = a;
-    console.log("AccountSearch Select");
-  }
-
 
   search(): void {
     console.log("AccountSearch Search");
@@ -44,7 +36,7 @@ export class AccountSearchComponent implements OnInit
     console.log(this.nickname);
 
     this.http
-      .get<Account[]>(url, {headers, params})
+      .get<Account[]>(url, {headers, params,  withCredentials: true})
       .subscribe(
         (accounts: Account[]) => {
           this.accounts = accounts;

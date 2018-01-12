@@ -14,13 +14,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class MyConfiguration {
 
   @Bean
-  public WebMvcConfigurer corsConfigurer() {
-    return new WebMvcConfigurerAdapter() {
-      @Override
-      public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**");
-      }
-    };
+    public WebMvcConfigurer corsConfigurer() {
+      return new WebMvcConfigurerAdapter() {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+          registry.addMapping("/**");
+        }
+      };
   }
 
   @Bean

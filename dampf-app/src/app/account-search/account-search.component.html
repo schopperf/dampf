@@ -29,12 +29,11 @@
       <th></th>
     </tr>
     </thead>
-    <tr *ngFor="let account of accounts"
-        [class.active]="a === selectedAccount">
-      <td>{{a.id}}</td>
-      <td>{{a.nickname }}</td>
-      <td>{{a.loginname }}</td>
-      <td>{{a.registerdate | date:'dd.MM.yyyy HH:mm'}}</td>
+    <tr *ngFor="let account of accounts">
+      <td>{{account.id}}</td>
+      <td>{{account.nickname }}</td>
+      <td>{{account.loginName }}</td>
+      <td>{{account.registerDate | date:'dd.MM.yyyy HH:mm'}}</td>
       <td>
         <a (click)="select(f)">Select</a>
       </td>
