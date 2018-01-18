@@ -5,6 +5,8 @@ import at.fh.ima.swengs.dampf.util.JsonDateSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,7 +23,6 @@ public class Account {
 
     private String loginName;
 
-    @JsonIgnore
     private String password;
 
     @JsonDeserialize(using = JsonDateDeserializer.class)
@@ -95,5 +96,16 @@ public class Account {
 
     public void setGameAccounts(List<GameAccount> gameAccounts) {
         this.gameAccounts = gameAccounts;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(password);
+        this.password = hashedPassword;
     }
 }
