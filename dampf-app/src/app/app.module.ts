@@ -11,6 +11,7 @@ import {AccountSearchModule} from "./account-search/account-search.module";
 import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {APP_ROUTES} from "./app.routes";
+import {InfoComponent} from "./info/info.component";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {APP_ROUTES} from "./app.routes";
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
