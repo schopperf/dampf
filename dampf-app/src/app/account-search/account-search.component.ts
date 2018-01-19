@@ -17,8 +17,6 @@ export class AccountSearchComponent implements OnInit
   nickname: string;
   accounts: Array<Account> = [];
 
-  thisAccount: Account;
-
   constructor(private http: HttpClient) {
     console.log("AccountSearch Constructor");
   }

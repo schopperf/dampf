@@ -1,12 +1,12 @@
 <div class="card">
   <div class="header">
-    <h2 class="title">Account Search</h2>
+    <h1 class="title">Account Search</h1>
   </div>
   <div class="content">
     <form>
       <div class="form-group">
         <label>Nickname:</label>
-        <input [(ngModel)]="nickname" name="nickname" class="form-control">
+        <input [(ngModel)]="nickname" name="nickname" class="form-control text-center">
       </div>
       <div class="form-group">
         <button
@@ -28,6 +28,7 @@
       <th>Id</th>
       <th>Nickname</th>
       <th>Loginname</th>
+      <th>E-Mail</th>
       <th>RegisterDate</th>
       <th></th>
     </tr>
@@ -36,17 +37,18 @@
       <td>{{account.id}}</td>
       <td>{{account.nickname }}</td>
       <td>{{account.loginName }}</td>
+      <td>{{account.email}}</td>
       <td>{{account.registerDate | date:'dd.MM.yyyy HH:mm'}}</td>
       <td>
-        <a (click)="select(f)">Select</a>
+        <a href="#" [routerLink]="['/account', account.id]">Show</a>
       </td>
     </tr>
   </table>
   <div *ngIf="accounts.length == 0">NO ACCOUNTS FOUND</div>
 </div>
 
-<div class="card">
+<!--<div class="card">
   <div class="content">
     <pre>{{ selectedAccount | json }}</pre>
   </div>
-</div>
+</div>-->

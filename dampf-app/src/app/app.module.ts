@@ -4,19 +4,29 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {AccountSearchComponent} from "./account-search/account-search.component";
 import {FormsModule} from "@angular/forms";
+import {SidebarComponent} from "./sidebar/sidebar.component";
+import {NavbarComponent} from "./navbar/navbar.component";
+import {AccountSearchModule} from "./account-search/account-search.module";
+import {HomeComponent} from "./home/home.component";
+import {RouterModule} from "@angular/router";
+import {APP_ROUTES} from "./app.routes";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountSearchComponent
+    SidebarComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AccountSearchModule,
+
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
