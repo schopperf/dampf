@@ -5,6 +5,7 @@ import {AccountComponent} from "./account-search/account/account.component";
 import {InfoComponent} from "./info/info.component";
 import {GameSearchComponent} from "./game-search/game-search.component";
 import {GameComponent} from "./game-search/game/game.component";
+import {GameAddComponent} from "./game-search/game-add/game-add.component";
 
 export const APP_ROUTES: Routes = [
   {
@@ -17,6 +18,7 @@ export const APP_ROUTES: Routes = [
     component: HomeComponent,
     pathMatch: 'full'
   },
+  //ACCOUNT
   {
     path: 'account-search',
     component: AccountSearchComponent
@@ -25,6 +27,7 @@ export const APP_ROUTES: Routes = [
     path: 'account/:id',
     component: AccountComponent
   },
+  //GAME
   {
     path: 'game-search',
     component: GameSearchComponent
@@ -33,6 +36,11 @@ export const APP_ROUTES: Routes = [
     path: 'game/:id',
     component: GameComponent
   },
+  {
+    path: 'game-add',
+    component: GameAddComponent
+  },
+  //REST
   {
     path: 'info',
     component: InfoComponent

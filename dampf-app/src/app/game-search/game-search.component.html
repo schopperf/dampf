@@ -6,7 +6,7 @@
     <form>
       <div class="form-group">
         <label>Game:</label>
-        <input [(ngModel)]="name" name="name" class="form-control text-center">
+        <input [(ngModel)]="name" name="name" class="form-control text-center input">
       </div>
       <div class="form-group">
         <button
@@ -16,8 +16,14 @@
           [disabled]="!game"
           (click)="search()"
           class="btn btn-default">Search</button>
+        <a
+          routerLink='/game-add'
+          class="btn btn-default">
+          Add new Game
+        </a>
       </div>
     </form>
+
   </div>
 </div>
 

@@ -1,0 +1,19 @@
+<div class="container">
+
+  <form>
+    <label>Name:</label>
+    <input [(ngModel)]="name" name="name" class="form-control text-center">
+    <label>Release Year:</label>
+    <input [(ngModel)]="releaseYear" name="releaseYear" class="form-control text-center">
+    <label>Price:</label>
+    <input [(ngModel)]="price" name="price" class="form-control text-center">
+    <label>Age Restriction:</label>
+    <input [(ngModel)]="ageRestriction" name="ageRestriction" class="form-control text-center">
+
+    <button
+      (click)="save()"
+      class="btn btn-default">
+      Save
+    </button>
+  </form>
+</div>

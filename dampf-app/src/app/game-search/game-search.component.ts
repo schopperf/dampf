@@ -12,6 +12,8 @@ import {Game} from "../entities/game";
 export class GameSearchComponent implements OnInit
 {
   ngOnInit(): void {
+
+    this.getAllGames();
   }
 
   nickname: string;

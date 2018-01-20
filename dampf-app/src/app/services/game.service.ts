@@ -31,4 +31,20 @@ export class GameService{
     return this.http
       .get<Game>(url, {headers, params});
   }
+
+
+
+  public createGame(name:string, releaseYear:number, price:number, ageRestriction:number)
+  {
+    let url = 'http://localhost:8080/games';
+
+    let headers = new HttpHeaders();
+    headers.set('Accept', 'application/json');
+
+
+
+    return this.http
+      .post(url,{name:name, releaseYear:releaseYear, price:price,
+        ageRestriction:ageRestriction}, {headers:headers});
+  }
 }
