@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="header">
+    <h1 class="title">Game Search</h1>
+  </div>
+  <div class="content">
+    <form>
+      <div class="form-group">
+        <label>Game:</label>
+        <input [(ngModel)]="name" name="name" class="form-control text-center">
+      </div>
+      <div class="form-group">
+        <button
+          (click)="getAllGames()"
+          class="btn btn-default">GetAll</button>
+        <button
+          [disabled]="!game"
+          (click)="search()"
+          class="btn btn-default">Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table-contensed" *ngIf="games.length > 0">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Release year</th>
+      <th>Price</th>
+      <th>Age restriction</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let game of games">
+      <td>{{game.id}}</td>
+      <td>{{game.name }}</td>
+      <td>{{game.releaseYear }}</td>
+      <td>{{game.price}}</td>
+      <td>{{game.ageRestriction}}</td>
+      <td>
+        <a href="#" [routerLink]="['/game', game.id]">Show</a>
+      </td>
+    </tr>
+  </table>
+  <!--<div *ngIf="games.length == 0">NO ACCOUNTS FOUND</div>-->
+</div>
+
+<!--<div class="card">
+  <div class="content">
+    <pre>{{ selectedAccount | json }}</pre>
+  </div>
+</div>-->

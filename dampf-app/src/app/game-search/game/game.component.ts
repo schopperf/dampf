@@ -1,49 +1,49 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
-import {Account} from "../../entities/account";
-import {AccountService} from "../../services/account.service";
 import {GameAccount} from "../../entities/gameAccount";
 import {GameAccountService} from "../../services/gameAccount.service";
-
+import {Game} from "../../entities/game";
+import {GameService} from "../../services/game.service";
 
 
 @Component({
-  selector: 'account',
-  templateUrl: './account.component.html',
+  selector: 'game',
+  templateUrl: './game.component.html',
 })
 
-export class AccountComponent implements OnInit {
+export class GameComponent implements OnInit {
 
   @Input() id: number;
 
-  account: Account;
+  game: Game;
   gameAccounts: GameAccount[];
 
   ngOnInit(): void {
 
   }
 
+
   constructor(private route: ActivatedRoute,
-              private accountService: AccountService,
+              private gameService: GameService,
               private gameAccountService: GameAccountService) {
-    console.log("Account Constructor");
+    console.log("Game Constructor");
 
     //Parameter AccountId holen
     this.route.params.subscribe(params => {this.id = +params['id'];});
 
     //Hole angeklickten Account
-    this.accountService
+    this.gameService
       .findById(this.id)
       .subscribe(
-        (account) => {
-          this.account = account;
+        (game) => {
+          this.game = game;
         },
         (errResp) => {
-          console.error('Error loading accounts', errResp);
+          console.error('Error loading games', errResp);
         },
       );
 
-    //Hole alle GameAccounts für diesen Account
+    //Hole alle GameAccounts für dieses Spiel
     this.gameAccountService
       .findAllGameAccountsForAccount(this.id)
       .subscribe(

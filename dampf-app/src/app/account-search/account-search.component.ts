@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Account} from "../entities/account";
+import {AccountService} from "../services/account.service";
 
 @Component({
   selector: 'account-search',
@@ -17,14 +18,15 @@ export class AccountSearchComponent implements OnInit
   nickname: string;
   accounts: Array<Account> = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private accountService: AccountService) {
     console.log("AccountSearch Constructor");
   }
 
   search(): void {
     console.log("AccountSearch Search");
 
-    let url = 'http://localhost:8080/accounts/search/findByNicknameContaining';
+   /* let url = 'http://localhost:8080/accounts/search/findByNicknameContaining';
     let headers = new HttpHeaders().set('Accept', 'application/json');
 
     let params = new HttpParams()
@@ -42,7 +44,19 @@ export class AccountSearchComponent implements OnInit
         (errResp) => {
           console.error('Error loading accounts', errResp);
         },
-      );
+      );*/
+
+    this.accountService.
+      findByNicknameContaining(this.nickname)
+      .subscribe(
+      (accounts) => {
+        this.accounts = accounts['_embedded']['accounts'];
+
+      },
+      (errResp) => {
+        console.error('Error loading accounts', errResp);
+      },
+    );
 
     console.log(this.accounts);
 

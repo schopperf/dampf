@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div *ngIf="game != undefined">
+
+    <h3>{{game.name }}</h3>
+    <p>Id: {{game.id}}</p>
+    <p>Name: {{game.name }}</p>
+    <p>Release year: {{game.releaseYear }}</p>
+    <p>Price: {{game.price}}</p>
+    <p>Age restriction: {{game.ageRestriction}}</p>
+  </div>
+
+
+  <!--TODO: idee: count von Spielern, die dieses Spiel besitzen-->
+  <table *ngIf="gameAccounts != undefined">
+    <thead class="table table-contensed" >
+    <tr>
+      <th>Id</th>
+      <th>GameId</th>
+      <th>AccountId</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let gameAccount of gameAccounts">
+      <td>{{gameAccount.id}}</td>
+      <td>{{gameAccount.gameId }}</td>
+      <td>{{gameAccount.accountId }}</td>
+    </tr>
+  </table>
+
+</div>

@@ -1,12 +1,10 @@
-import {AccountSearchComponent} from "./account-search.component";
+import {GameSearchComponent} from "./game-search.component";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
-import {AccountComponent} from "./account/account.component";
 import {APP_ROUTES} from "../app.routes";
 import {RouterModule} from "@angular/router";
-import {AccountService} from "../services/account.service";
-import {GameService} from "../services/game.service";
+import {GameComponent} from "./game/game.component";
 
 @NgModule({
   imports: [
@@ -15,15 +13,15 @@ import {GameService} from "../services/game.service";
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [
-    AccountSearchComponent,
-    AccountComponent
-
+    GameSearchComponent,
+    GameComponent
   ],
   exports: [
-    AccountSearchComponent
+    GameSearchComponent,
+    GameComponent
   ],
   providers: [
   ]
 })
 
-export class AccountSearchModule { }
+export class GameSearchModule { }

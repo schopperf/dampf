@@ -12,6 +12,10 @@ import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {APP_ROUTES} from "./app.routes";
 import {InfoComponent} from "./info/info.component";
+import {AccountService} from "./services/account.service";
+import {GameService} from "./services/game.service";
+import {GameAccountService} from "./services/gameAccount.service";
+import {GameSearchModule} from "./game-search/game-search.module";
 
 
 @NgModule({
@@ -27,10 +31,15 @@ import {InfoComponent} from "./info/info.component";
     HttpClientModule,
     FormsModule,
     AccountSearchModule,
+    GameSearchModule,
 
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [],
+  providers: [
+    AccountService,
+    GameService,
+    GameAccountService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
