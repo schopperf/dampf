@@ -4,6 +4,8 @@ import {GameAccount} from "../../entities/gameAccount";
 import {GameAccountService} from "../../services/gameAccount.service";
 import {Game} from "../../entities/game";
 import {GameService} from "../../services/game.service";
+import {AuthGuard} from "../../shared/auth/auth.guard";
+import {AuthService} from "../../shared/auth/auth.service";
 
 
 @Component({
@@ -16,7 +18,7 @@ export class GameComponent implements OnInit {
   @Input() id: number;
 
   game: Game;
-  gameList: Game[];
+  loginId: number;
 
   ngOnInit(): void {
 
@@ -25,13 +27,16 @@ export class GameComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private gameService: GameService,
-              private gameAccountService: GameAccountService) {
+              private gameAccountService: GameAccountService,
+              private authService:AuthService) {
     console.log("Game Constructor");
 
-    //Parameter AccountId holen
-    this.route.params.subscribe(params => {this.id = +params['id'];});
+    //Parameter GameId holen
+    this.route.params.subscribe(params => {this.id = + params['id'];});
 
-    //Hole angeklickten Account
+    this.loginId = authService.loginAccountId;
+
+    //Hole angeklicktes Game
     this.gameService
       .findById(this.id)
       .subscribe(
@@ -42,8 +47,6 @@ export class GameComponent implements OnInit {
           console.error('Error loading games', errResp);
         },
       );
-
-    //TODO: Alle User, die dieses Spiel besitzen
 
   }
 
@@ -61,6 +64,22 @@ export class GameComponent implements OnInit {
         },
       );
 
+  }
+
+
+  addToAccount()
+  {
+
+    this.gameAccountService
+      .createGameAccount(this.game.id,this.loginId)
+      .subscribe(
+      (game) => {
+        console.log("Create GameAccount: " + this.game.id);
+      },
+      (errResp) => {
+        console.error('Error loading games', errResp);
+      },
+    );
   }
 
 

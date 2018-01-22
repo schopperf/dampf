@@ -29,4 +29,16 @@ export class GameAccountService{
     return this.http
       .get<GameAccount[]>(url, {headers, params});
   }
+
+
+  public createGameAccount(gameId:number, accountId:number)
+  {
+    let url = 'http://localhost:8080/gameAccounts';
+
+    let headers = new HttpHeaders();
+    headers.set('Accept', 'application/json');
+
+    return this.http
+      .post(url,{gameId, accountId}, {headers:headers});
+  }
 }
