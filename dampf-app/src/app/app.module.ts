@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {AccountSearchModule} from "./account-search/account-search.module";
@@ -16,6 +16,11 @@ import {AccountService} from "./services/account.service";
 import {GameService} from "./services/game.service";
 import {GameAccountService} from "./services/gameAccount.service";
 import {GameSearchModule} from "./game-search/game-search.module";
+import {LoginComponent} from "./login/login.component";
+import {SharedModule} from "./shared/shared.module";
+import {HttpModule} from "@angular/http";
+import {AuthService} from "./shared/auth/auth.service";
+import {AuthGuard} from "./shared/auth/auth.guard";
 
 
 @NgModule({
@@ -24,21 +29,26 @@ import {GameSearchModule} from "./game-search/game-search.module";
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    InfoComponent
+    InfoComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AccountSearchModule,
     GameSearchModule,
-
+    SharedModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
     AccountService,
     GameService,
-    GameAccountService
+    GameAccountService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

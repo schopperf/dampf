@@ -47,4 +47,16 @@ export class GameService{
       .post(url,{name:name, releaseYear:releaseYear, price:price,
         ageRestriction:ageRestriction}, {headers:headers});
   }
+
+
+  updateGame(game: Game) {
+
+
+    let url = 'http://localhost:8080/games/' + game.id;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .put(url, game,{headers});
+  }
 }

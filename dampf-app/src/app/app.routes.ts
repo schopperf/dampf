@@ -6,6 +6,8 @@ import {InfoComponent} from "./info/info.component";
 import {GameSearchComponent} from "./game-search/game-search.component";
 import {GameComponent} from "./game-search/game/game.component";
 import {GameAddComponent} from "./game-search/game-add/game-add.component";
+import {LoginComponent} from "./login/login.component";
+import {GameEditComponent} from "./game-search/game-edit/game-edit.component";
 
 export const APP_ROUTES: Routes = [
   {
@@ -37,6 +39,10 @@ export const APP_ROUTES: Routes = [
     component: GameComponent
   },
   {
+    path: 'game-edit/:id',
+    component: GameEditComponent
+  },
+  {
     path: 'game-add',
     component: GameAddComponent
   },
@@ -44,6 +50,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'info',
     component: InfoComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',

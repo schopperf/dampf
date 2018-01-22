@@ -21,10 +21,10 @@ export class AccountSearchComponent implements OnInit
   constructor(private http: HttpClient,
               private accountService: AccountService) {
     console.log("AccountSearch Constructor");
+    this.getAllAccounts();
   }
 
   search(): void {
-    console.log("AccountSearch Search");
 
    /* let url = 'http://localhost:8080/accounts/search/findByNicknameContaining';
     let headers = new HttpHeaders().set('Accept', 'application/json');

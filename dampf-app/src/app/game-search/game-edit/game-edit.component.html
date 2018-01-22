@@ -1,0 +1,83 @@
+<!--<div class="card" >
+  <div>
+  <h2 *ngIf="game != undefined">Edit {{game.name}}</h2>
+  <form>
+
+        <label>Name:</label>
+        <input *ngIf="game != undefined" [(ngModel)]="name" name="name" class="form-control text-center" value={{game.name}}>
+        <label>Release Year:</label>
+        <input [(ngModel)]="releaseYear" name="releaseYear" class="form-control text-center" type="number" value={{game.releaseYear}}>
+        <label>Price:</label>
+        <input [(ngModel)]="price" name="price" class="form-control text-center" type="number" value={{game.price}}>
+        <label>Age Restriction:</label>
+        <input [(ngModel)]="ageRestriction" name="ageRestriction" class="form-control text-center" type="number" value={{game.ageRestriction}}>
+
+    <button
+      (click)="save()"
+      class="btn btn-default">
+      Save
+    </button>
+    <button
+      [routerLink]="['/game', game.id]"
+      class="btn btn-default">
+      Cancel
+    </button>
+  </form>
+  </div>
+</div>
+-->
+
+
+<div class="card">
+  <div class="header">
+    <h2 *ngIf="game" class="title">Edit {{game.name}}</h2>
+  </div>
+  <div class="content">
+    <form  (ngSubmit)="save()" *ngIf="game" #form="ngForm">
+      <div class="form-group">
+        <label>GameID: {{game.id}}</label>
+      </div>
+
+      <div class="form-group">
+        <label>Name:</label>
+        <input [(ngModel)]="game.name" name="name" class="form-control" placeholder="Name"
+               required minlength="2">
+
+
+      </div>
+
+      <div class="form-group">
+        <label>Release Year:</label>
+        <input [(ngModel)]="game.releaseYear" name="releaseYear" class="form-control" placeholder="Release Year"
+               required minlength="4">
+
+      </div>
+
+      <div class="form-group">
+        <label>Price:</label>
+        <input [(ngModel)]="game.price" name="price" class="form-control" placeholder="Price">
+
+      </div>
+
+      <div class="form-group">
+        <label>Age restriction:</label>
+        <input [(ngModel)]="game.ageRestriction" name="ageRestriction" class="form-control" placeholder="Age restriction">
+
+      </div>
+
+      <div class="form-group">
+        <button
+          (click)="save()"
+          class="btn btn-default">
+          Save
+        </button>
+        <button
+          [routerLink]="['/game', game.id]"
+          class="btn btn-default">
+          Cancel
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

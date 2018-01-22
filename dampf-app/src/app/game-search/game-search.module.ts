@@ -6,6 +6,7 @@ import {APP_ROUTES} from "../app.routes";
 import {RouterModule} from "@angular/router";
 import {GameComponent} from "./game/game.component";
 import {GameAddComponent} from "./game-add/game-add.component";
+import {GameEditComponent} from "./game-edit/game-edit.component";
 
 @NgModule({
   imports: [
@@ -16,12 +17,14 @@ import {GameAddComponent} from "./game-add/game-add.component";
   declarations: [
     GameSearchComponent,
     GameComponent,
-    GameAddComponent
+    GameAddComponent,
+    GameEditComponent
   ],
   exports: [
     GameSearchComponent,
     GameComponent,
-    GameAddComponent
+    GameAddComponent,
+    GameEditComponent
   ],
   providers: [
   ]
