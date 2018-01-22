@@ -30,19 +30,23 @@ export class LoginComponent implements OnInit {
   message:string;
 
   login() {
-
+    console.log("LOGIN START:");
+    console.log(this.loginName);
+    console.log(this.password);
 
     this.accountService
-      .findByUsernameAndPassword(this.loginName, this.password).subscribe(
-      (user) => {
+      .findByUsernameAndPassword(this.loginName, this.password)
+      .subscribe(
+      (account) => {
         this.error = false;
-        console.log(user);
-        this.authService.login(user);
+        console.log("LOGIN: " + account);
+        this.authService.login(account);
         this.router.navigate(['/home']);
       },
       (err) => {
         this.error = true;
       }
     );
+    console.log("LOGIN END:");
   }
 }

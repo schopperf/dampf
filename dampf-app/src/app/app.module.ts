@@ -21,6 +21,7 @@ import {SharedModule} from "./shared/shared.module";
 import {HttpModule} from "@angular/http";
 import {AuthService} from "./shared/auth/auth.service";
 import {AuthGuard} from "./shared/auth/auth.guard";
+import {ProfileComponent} from "./profile/profile.component";
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import {AuthGuard} from "./shared/auth/auth.guard";
     HomeComponent,
     InfoComponent,
     LoginComponent,
-
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

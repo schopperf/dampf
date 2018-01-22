@@ -10,6 +10,7 @@ import {LoginComponent} from "./login/login.component";
 import {GameEditComponent} from "./game-search/game-edit/game-edit.component";
 import {GameDeleteComponent} from "./game-search/game-delete/game-delete.component";
 import {AuthGuard} from "./shared/auth/auth.guard";
+import {ProfileComponent} from "./profile/profile.component";
 
 export const APP_ROUTES: Routes = [
   {
@@ -63,6 +64,11 @@ export const APP_ROUTES: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: '**',

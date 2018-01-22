@@ -13,7 +13,7 @@ public interface AccountRepository extends PagingAndSortingRepository<Account, L
 
         List<Account> findByNicknameContaining(@Param("nickname") String nickname);
 
-        List<Account> findByLoginNameAndPassword(@Param("loginName") String loginName, @Param("password") String password);
+        Account findByLoginNameAndPassword(@Param("loginName") String loginName, @Param("password") String password);
 
         Account findByNickname(@Param("nickname") String nickname);
 

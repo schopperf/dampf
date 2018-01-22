@@ -45,8 +45,21 @@ export class GameComponent implements OnInit {
 
     //TODO: Alle User, die dieses Spiel besitzen
 
+  }
 
+  delete()
+  {
 
+    this.gameService
+      .deleteGame(this.id)
+      .subscribe(
+        (game) => {
+          console.log("Delete Game: " + game);
+        },
+        (errResp) => {
+          console.error('Error loading games', errResp);
+        },
+      );
 
   }
 

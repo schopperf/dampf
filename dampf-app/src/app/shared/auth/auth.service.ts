@@ -12,6 +12,8 @@ export class AuthService {
   login(account: Account) {
     this.loginAccount = account;
     this.loginAccountId = account.id;
+
+    console.log("Login AccountId: " + account.id);
     /*switch (account.loginname) {
       case 'admin':
         this.loginAccountRole = 'ADMIN';

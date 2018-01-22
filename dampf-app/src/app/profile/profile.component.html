@@ -1,0 +1,30 @@
+<div class="container">
+
+  <table *ngIf="account != undefined">
+    <thead class="table table-contensed" >
+    <tr>
+      <th>Id</th>
+      <th>Nickname</th>
+      <th>Loginname</th>
+      <th>E-Mail</th>
+      <th>RegisterDate</th>
+    </tr>
+    </thead>
+    <tr>
+      <td>{{account.id}}</td>
+      <td>{{account.nickname }}</td>
+      <td>{{account.loginName }}</td>
+      <td>{{account.email}}</td>
+      <td>{{account.registerDate | date:'dd.MM.yyyy HH:mm'}}</td>
+    </tr>
+  </table>
+
+
+  <h3>Games:</h3>
+  <p *ngFor="let game of gameList">{{game.name}}</p>
+
+
+
+  <button (click)="testClick()">Click</button>
+
+</div>
