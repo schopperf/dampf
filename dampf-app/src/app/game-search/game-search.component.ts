@@ -16,7 +16,7 @@ export class GameSearchComponent implements OnInit
     this.getAllGames();
   }
 
-  nickname: string;
+  name: string;
   games: Array<Game> = [];
 
   constructor(private gameService: GameService) {
@@ -39,6 +39,19 @@ export class GameSearchComponent implements OnInit
 
     console.log(this.accounts);
 */
+
+    console.log("SEARCH FOR: " + this.name);
+    this.gameService
+      .findByNameContaining(this.name)
+      .subscribe(
+        (games) => {
+          this.games = games['_embedded']['games'];
+
+        },
+        (errResp) => {
+          console.error('Error loading Games', errResp);
+        },
+      );
   }
 
 

@@ -72,4 +72,17 @@ export class GameService{
       .http
       .delete(url, {headers});
   }
+
+  findByNameContaining(name: string)
+  {
+    let url = 'http://localhost:8080/games/search/findByNameContaining';
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    let params = new HttpParams()
+      .set('name', name);
+
+
+    return this.http
+      .get<Game>(url, {headers, params});
+  }
 }
