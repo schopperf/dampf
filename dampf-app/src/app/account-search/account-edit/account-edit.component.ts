@@ -35,10 +35,12 @@ export class AccountEditComponent implements OnInit {
   ngOnInit()
   {
     this.editForm = this.fb.group({
-      nickname: [null],
-      loginName:  [null],
+      nickname: [null, [Validators.required, Validators.minLength(1)]],
+      loginName:  [null, [Validators.required, Validators.minLength(1)]],
       email:  [null],
-      registerDate: [null]
+      registerDate: [null, [Validators.required, Validators.pattern('^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$')]]
+
+
 
 
     });
