@@ -1,8 +1,9 @@
 # dampf
 
-1 sehr nices projekt vong programmierung her
+Dies ist ein Studentenprojekt an der FH Joanneum im Fach Software Engineering Advanced.
+
 
 # contributors:
 
-der stefang
-der fabiang
+Stefan Kogelnik
+Fabian Schopper
