@@ -1,18 +1,49 @@
 <div class="container">
 
-  <form>
-    <label>Name:</label>
-    <input [(ngModel)]="name" name="name" class="form-control text-center">
-    <label>Release Year:</label>
-    <input [(ngModel)]="releaseYear" name="releaseYear" class="form-control text-center" type="number">
-    <label>Price:</label>
-    <input [(ngModel)]="price" name="price" class="form-control text-center" type="number">
-    <label>Age Restriction:</label>
-    <input [(ngModel)]="ageRestriction" name="ageRestriction" class="form-control text-center" type="number">
+  <form  #form="ngForm" >
+   <div class="text-danger" *ngIf="addForm.controls['name'].hasError('minlength')">
+      Please enter a name for the game.        </div>
+    <div class="text-danger" *ngIf="addForm.controls['releaseYear'].hasError('pattern')">
+      Please enter a valid year.
+    </div>
+    <div class="text-danger" *ngIf="addForm.controls['price'].hasError('pattern')">
+      Please enter a valid price between 0-99.
+    </div>
+    <div class="text-danger" *ngIf="addForm.controls['ageRestriction'].hasError('pattern')">
+      Please enter a valid age between 0-99.
+    </div>
+    <div class="form-group" [formGroup]="addForm">
+      <label>Name: </label> <br>
+      <input [(ngModel)]="name" name="name" formControlName="name" placeholder="Name">
+      <!--    errors: {{editForm.controls['name'].errors | json}} -->
 
-    <button
-      (click)="save()"
-      class="btn btn-default">
+    </div>
+
+
+    <div class="form-group" [formGroup]="addForm">
+      <label>Release Year: </label> <br>
+      <input [(ngModel)]="releaseYear" name="releaseYear" formControlName="releaseYear" placeholder="Release Year">
+      <!--    errors: {{editForm.controls['name'].errors | json}} -->
+
+    </div>
+
+
+    <div class="form-group" [formGroup]="addForm">
+      <label>Price:</label> <br>
+      <input [(ngModel)]="price" name="price" formControlName="price"  placeholder="Price">
+      <!--    errors: {{editForm.controls['name'].errors | json}} -->
+
+    </div>
+
+    <div class="form-group" [formGroup]="addForm">
+      <label>Age restriction:</label> <br>
+      <input [(ngModel)]="ageRestriction" name="ageRestriction"  formControlName="ageRestriction"  placeholder="Age restriction">
+      <!--    errors: {{editForm.controls['name'].errors | json}} -->
+
+    </div>
+    <button [disabled]="!addForm.valid"
+            (click)="save()"
+            class="btn btn-default" >
       Save
     </button>
   </form>

@@ -64,9 +64,7 @@ export class GameEditComponent implements OnInit {
   }
 
 
-  save()
-  {
-    console.log(this.price);
+  save()  {
     this.gameService
       .updateGame(this.game)
       .subscribe(tmp => {
