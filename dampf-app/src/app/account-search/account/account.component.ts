@@ -4,7 +4,8 @@ import {Account} from "../../entities/account";
 import {AccountService} from "../../services/account.service";
 import {GameAccount} from "../../entities/gameAccount";
 import {GameAccountService} from "../../services/gameAccount.service";
-
+import {Game} from "../../entities/game";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
 @Component({
@@ -17,7 +18,9 @@ export class AccountComponent implements OnInit {
   @Input() id: number;
 
   account: Account;
-  gameAccounts: GameAccount[];
+  gameList: Game[] = [];
+  links: string[] = [];
+  tmp: any;
 
   ngOnInit(): void {
 
@@ -25,7 +28,8 @@ export class AccountComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private accountService: AccountService,
-              private gameAccountService: GameAccountService) {
+              private gameAccountService: GameAccountService,
+              private http: HttpClient) {
     console.log("Account Constructor");
 
     //Parameter AccountId holen
@@ -43,19 +47,59 @@ export class AccountComponent implements OnInit {
         },
       );
 
+
+
+
     //Hole alle GameAccounts für diesen Account
     this.gameAccountService
       .findAllGameAccountsForAccount(this.id)
       .subscribe(
         (gameAccount) => {
-          this.gameAccounts = gameAccount["_embedded"]["gameAccounts"];
+          this.tmp = gameAccount["_embedded"]["gameAccounts"]
+            .map(function (gameAcc)
+            {
+              return gameAcc["_links"]["game"]["href"];
+            });
         },
         (errResp) => {
-          console.error('Error loading accounts', errResp);
+          console.error('Error loading GameAccounts', errResp);
         },
       );
 
-      console.log(this.gameAccounts);
+    console.log("THIS");
+    console.log(this.tmp);
+
+
+
+    //console.log("THIS:");
+    //console.log(this);
+  }
+
+
+
+  testClick()
+  {
+    console.log("LINKS:");
+    console.log(this.tmp);
+
+
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    for (let g of this.tmp) {
+      this.http
+        .get(g,{headers})
+        .subscribe(
+          (game) => {
+            console.log(game);
+            this.gameList.push(game as Game);
+          },
+          (errResp) => {
+            console.error('Error loading accounts', errResp);
+          },
+        );
+    }
+
+
   }
 
 

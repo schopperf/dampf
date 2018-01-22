@@ -20,19 +20,11 @@
   </table>
 
 
-  <table *ngIf="gameAccounts != undefined">
-    <thead class="table table-contensed" >
-    <tr>
-      <th>Id</th>
-      <th>GameId</th>
-      <th>AccountId</th>
-    </tr>
-    </thead>
-    <tr *ngFor="let gameAccount of gameAccounts">
-      <td>{{gameAccount.id}}</td>
-      <td>{{gameAccount.gameId }}</td>
-      <td>{{gameAccount.accountId }}</td>
-    </tr>
-  </table>
+  <h3>Games:</h3>
+  <p *ngFor="let game of gameList">{{game.name}}</p>
+
+
+
+  <button (click)="testClick()">Click</button>
 
 </div>

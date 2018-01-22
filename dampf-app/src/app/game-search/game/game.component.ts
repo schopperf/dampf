@@ -16,7 +16,7 @@ export class GameComponent implements OnInit {
   @Input() id: number;
 
   game: Game;
-  gameAccounts: GameAccount[];
+  gameList: Game[];
 
   ngOnInit(): void {
 
@@ -43,20 +43,13 @@ export class GameComponent implements OnInit {
         },
       );
 
-    //Hole alle GameAccounts für dieses Spiel
-    this.gameAccountService
-      .findAllGameAccountsForAccount(this.id)
-      .subscribe(
-        (gameAccount) => {
-          this.gameAccounts = gameAccount["_embedded"]["gameAccounts"];
-        },
-        (errResp) => {
-          console.error('Error loading accounts', errResp);
-        },
-      );
+    //TODO: Alle User, die dieses Spiel besitzen
 
-      console.log(this.gameAccounts);
+
+
+
   }
+
 
 
 }
