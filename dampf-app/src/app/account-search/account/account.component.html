@@ -1,24 +1,17 @@
-<div class="container">
+<div class="container" *ngIf="account != undefined">
 
-  <h2>Hello {{this.authService.accountName}}</h2>
-  <table *ngIf="account != undefined">
-    <thead class="table table-contensed" >
-    <tr>
-      <th>Id</th>
-      <th>Nickname</th>
-      <th>Loginname</th>
-      <th>E-Mail</th>
-      <th>RegisterDate</th>
-    </tr>
-    </thead>
-    <tr>
-      <td>{{account.id}}</td>
-      <td>{{account.nickname }}</td>
-      <td>{{account.loginName }}</td>
-      <td>{{account.email}}</td>
-      <td>{{account.registerDate}}</td>
-    </tr>
-  </table>
+  <h2>{{account.nickname}}</h2>
+
+    <label>Id:</label>
+    <div>{{account.id}}</div>
+    <label>Nickname:</label>
+    <div>{{account.nickname }}</div>
+    <label>Login name:</label>
+    <div>{{account.loginName }}</div>
+    <label>E-Mail:</label>
+    <div>{{account.email}}</div>
+    <label>Register date:</label>
+    <div>{{account.registerDate}}</div>
 
 
   <h3>Games:</h3>
@@ -26,6 +19,6 @@
 
 
 
-  <button (click)="testClick()">Click</button>
+  <button class="btn" (click)="testClick()">Show Games</button>
 
 </div>

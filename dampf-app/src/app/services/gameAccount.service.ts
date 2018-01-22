@@ -10,9 +10,7 @@ export class GameAccountService{
 
   constructor(private http: HttpClient){}
 
-  gameAcc:GameAccount = null;
-
-  public findAllGameAccounts()
+   public findAllGameAccounts()
   {
     let url = 'http://localhost:8080/gameAccounts';
     let headers = new HttpHeaders().set('Accept', 'application/json');
@@ -41,12 +39,108 @@ export class GameAccountService{
     let headers = new HttpHeaders();
     headers.set('Accept', 'application/json');
 
-    this.gameAcc.id = NaN;
-    this.gameAcc.game = game;
-    this.gameAcc.account = account;
+    let gameAcc: GameAccount = {id: null, game:game, account:account};
 
 
     return this.http
-      .post(url, this.gameAcc,{headers:headers});
+      .post(url, gameAcc,{headers:headers});
   }
+
+
+
+
+
+  /*fullCreate(card: Card) : void {
+    let cardWithout: Card = {
+      id: null,
+      startDateTime: card.startDateTime,
+      endDateTime: card.endDateTime,
+      person: {
+        id: NaN,
+        firstName: '',
+        lastName: '',
+        dayOfBirth: '',
+        street: '',
+        postalCode: NaN,
+        city: '',
+        personType: '',
+      },
+      skiresort:{
+        id: NaN,
+        city: '',
+        name: '',
+        state: '',
+        kmSlopes: NaN,
+        height: NaN,
+        skiLift: NaN,
+        priceAdult: NaN,
+        priceChild: NaN,
+        priceStudent: NaN,
+        pictureLink: '',
+      }
+
+    };
+    this.createCard(cardWithout).subscribe(
+      cardNew => {
+        let personId = card.person.id
+        let skiresortId = card.skiresort.id
+        console.log(cardNew.id)
+        card = cardNew;
+
+        card.person = {
+          id: personId,
+          firstName: '',
+          lastName: '',
+          dayOfBirth: '',
+          street: '',
+          postalCode: NaN,
+          city: '',
+          personType: '',
+        };
+
+        card.skiresort = {
+          id: skiresortId,
+          city: '',
+          name: '',
+          state: '',
+          kmSlopes: NaN,
+          height: NaN,
+          skiLift: NaN,
+          priceAdult: NaN,
+          priceChild: NaN,
+          priceStudent: NaN,
+          pictureLink: '',
+        };
+        console.log(card.id)
+
+        console.log("Successfully created card.");
+        this.updatePerson(card).subscribe(
+          person  => {
+            card.person = person;
+            console.log("person was added");
+            this.updateSkiresort(card).subscribe(
+              skiresort => {
+                card.skiresort = skiresort;
+                console.log("skiresort was added");
+                this.router.navigate(['/card-search'])
+              },
+              err => {
+                console.log("card was not added" )
+              }
+            );
+
+          },
+          err => {
+            console.log("person was not added")
+          }
+        );
+
+      },
+      err => {
+        console.log(card.id);
+        console.log("Error creating card.")
+      }
+    );
+
+  }*/
 }

@@ -81,7 +81,7 @@ export class AccountComponent implements OnInit {
     console.log("LINKS:");
     console.log(this.tmp);
 
-
+    this.gameList = [];
     let headers = new HttpHeaders().set('Accept', 'application/json');
 
     for (let g of this.tmp) {
