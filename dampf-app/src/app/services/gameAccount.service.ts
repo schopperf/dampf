@@ -20,7 +20,7 @@ export class GameAccountService{
 
   public findAllGameAccountsForAccount(accountId: number)
   {
-    let url = 'http://localhost:8080/gameAccounts/search/findByAccount_Id';
+      let url = 'http://localhost:8080/gameAccounts/search/findByAccount_Id';
     let headers = new HttpHeaders().set('Accept', 'application/json');
 
     let params = new HttpParams()
