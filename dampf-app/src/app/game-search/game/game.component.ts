@@ -71,7 +71,7 @@ export class GameComponent implements OnInit {
   {
 
     this.gameAccountService
-      .createGameAccount(this.game.id,this.loginId)
+      .createGameAccount(this.game,this.authService.loginAccount)
       .subscribe(
       (game) => {
         console.log("Create GameAccount: " + this.game.id);

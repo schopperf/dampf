@@ -2,12 +2,15 @@
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {GameAccount} from "../entities/gameAccount";
 import {Injectable} from "@angular/core";
+import {Account} from "../entities/account";
+import {Game} from "../entities/game";
 
 @Injectable()
 export class GameAccountService{
 
   constructor(private http: HttpClient){}
 
+  gameAcc:GameAccount;
 
   public findAllGameAccounts()
   {
@@ -31,14 +34,19 @@ export class GameAccountService{
   }
 
 
-  public createGameAccount(gameId:number, accountId:number)
+  public createGameAccount(game:Game, account:Account)
   {
     let url = 'http://localhost:8080/gameAccounts';
 
     let headers = new HttpHeaders();
     headers.set('Accept', 'application/json');
 
+    this.gameAcc.id = NaN;
+    this.gameAcc.game = game;
+    this.gameAcc.account = account;
+
+
     return this.http
-      .post(url,{gameId, accountId}, {headers:headers});
+      .post(url, this.gameAcc,{headers:headers});
   }
 }

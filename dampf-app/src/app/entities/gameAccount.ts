@@ -1,6 +1,9 @@
+import {Account} from "./account";
+import {Game} from "./game";
+
 export interface GameAccount
 {
   id: number;
-  gameId: number;
-  accountId: number;
+  game: Game;
+  account: Account;
 }

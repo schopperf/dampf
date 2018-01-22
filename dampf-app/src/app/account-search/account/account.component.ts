@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {Account} from "../../entities/account";
 import {AccountService} from "../../services/account.service";
-import {GameAccount} from "../../entities/gameAccount";
 import {GameAccountService} from "../../services/gameAccount.service";
 import {Game} from "../../entities/game";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
