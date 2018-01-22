@@ -1,5 +1,5 @@
 import {GameSearchComponent} from "./game-search.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
 import {APP_ROUTES} from "../app.routes";
@@ -13,7 +13,8 @@ import {GameDeleteComponent} from "./game-delete/game-delete.component";
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    ReactiveFormsModule
   ],
   declarations: [
     GameSearchComponent,

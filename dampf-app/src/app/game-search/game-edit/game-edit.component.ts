@@ -2,14 +2,18 @@ import {Component, Input, OnInit} from "@angular/core";
 import {GameService} from "../../services/game.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Game} from "../../entities/game";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'game-edit',
   templateUrl: './game-edit.component.html',
+  styleUrls: ['./game-edit.component.css'],
+
 })
 
 
 export class GameEditComponent implements OnInit {
+  editForm: FormGroup;
 
 
   @Input() id: number;
@@ -23,12 +27,23 @@ export class GameEditComponent implements OnInit {
 
   constructor(private gameService: GameService,
               private route: ActivatedRoute,
-              private router: Router){
+              private router: Router,
+              private fb: FormBuilder){
 
   }
 
   ngOnInit()
   {
+    this.editForm = this.fb.group({
+      id: [],
+      name: [null, [Validators.required, Validators.minLength(1)]],
+      releaseYear:  [null, [Validators.required, Validators.pattern('^[0-9]{4}$')]],
+      price:  [null, [Validators.required, Validators.pattern('^[1-9][0-9]?$')]],
+      ageRestriction: [null, [Validators.required, Validators.pattern('^[1-9][0-9]?$')]]
+
+
+    });
+
     this.route.params.subscribe(params => {this.id = +params['id'];});
 
     this.gameService
@@ -41,6 +56,11 @@ export class GameEditComponent implements OnInit {
           console.error('Error loading games', errResp);
         },
       );
+
+    console.log(this.editForm.value);
+    console.log(this.editForm.valid);
+    console.log(this.editForm.touched);
+    console.log(this.editForm.dirty);
   }
 
 
