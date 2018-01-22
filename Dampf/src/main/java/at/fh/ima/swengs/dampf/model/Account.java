@@ -105,8 +105,6 @@ public class Account {
     }
 
     public void setPassword(String password) {
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(password);
-        this.password = hashedPassword;
+        this.password = password;
     }
 }
