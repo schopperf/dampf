@@ -59,4 +59,17 @@ export class GameService{
       .http
       .put(url, game,{headers});
   }
+
+
+  deleteGame(gameId: number)
+  {
+    let url = 'http://localhost:8080/games/' + gameId;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+
+
+    return this
+      .http
+      .delete(url, {headers});
+  }
 }

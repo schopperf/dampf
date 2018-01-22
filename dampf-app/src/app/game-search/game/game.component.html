@@ -28,6 +28,6 @@
   </table>
 
   <a href="#" *ngIf="game != undefined" [routerLink]="['/game-edit', game.id]">Edit</a>
-  <a href="#" *ngIf="game != undefined" [routerLink]="['/game-delete', game.id]">Delete</a>
-  
+  <a href="#" (click)="delete()" *ngIf="game != undefined" [routerLink]="['/game-delete']">Delete</a>
+
 </div>

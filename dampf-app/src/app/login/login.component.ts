@@ -31,9 +31,6 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    console.log(this.loginName);
-    console.log(this.password);
-
 
     this.accountService
       .findByUsernameAndPassword(this.loginName, this.password).subscribe(

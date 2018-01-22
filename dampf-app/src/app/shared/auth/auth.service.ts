@@ -19,6 +19,7 @@ export class AuthService {
       default:
         this.loginAccountRole = 'USER';
     }*/
+    console.log("Login: " + account.nickname);
   }
 
   logout() {

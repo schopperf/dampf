@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {GameComponent} from "./game/game.component";
 import {GameAddComponent} from "./game-add/game-add.component";
 import {GameEditComponent} from "./game-edit/game-edit.component";
+import {GameDeleteComponent} from "./game-delete/game-delete.component";
 
 @NgModule({
   imports: [
@@ -18,13 +19,15 @@ import {GameEditComponent} from "./game-edit/game-edit.component";
     GameSearchComponent,
     GameComponent,
     GameAddComponent,
-    GameEditComponent
+    GameEditComponent,
+    GameDeleteComponent
   ],
   exports: [
     GameSearchComponent,
     GameComponent,
     GameAddComponent,
-    GameEditComponent
+    GameEditComponent,
+    GameDeleteComponent
   ],
   providers: [
   ]

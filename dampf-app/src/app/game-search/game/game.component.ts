@@ -22,7 +22,6 @@ export class GameComponent implements OnInit {
 
   }
 
-
   constructor(private route: ActivatedRoute,
               private gameService: GameService,
               private gameAccountService: GameAccountService) {
@@ -56,6 +55,20 @@ export class GameComponent implements OnInit {
       );
 
       console.log(this.gameAccounts);
+  }
+
+
+  delete()
+  {
+    this.gameService
+      .deleteGame(this.id)
+      .subscribe(tmp => {
+          console.log("Deleted: " + this.game.name);
+        },
+        (error) => {
+          console.log("An Error occured while creating the account!");
+        });
+
   }
 
 

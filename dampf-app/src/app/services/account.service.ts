@@ -36,7 +36,7 @@ export class AccountService{
   }
 
   findByUsernameAndPassword (loginName: string, password: string) {
-    let url = 'http://localhost:8080/account/search/findByLoginNameAndPassword';
+    let url = 'http://localhost:8080/accounts/search/findByLoginNameAndPassword';
     let headers = new HttpHeaders().set('Accept', 'application/json');
     let params = new HttpParams()
       .set('loginName', loginName)

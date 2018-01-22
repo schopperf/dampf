@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.loginAccount) {
       return true;
     }
-    this.router.navigate(['/game-add', { needsLogin: true }])
+    this.router.navigate(['/login', { needsLogin: true }])
     return true;
   }
 
