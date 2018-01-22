@@ -10,7 +10,7 @@ export class GameAccountService{
 
   constructor(private http: HttpClient){}
 
-  gameAcc:GameAccount;
+  gameAcc:GameAccount = null;
 
   public findAllGameAccounts()
   {
