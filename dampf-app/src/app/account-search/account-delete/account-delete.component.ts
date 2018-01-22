@@ -14,5 +14,4 @@ export class AccountDeleteComponent implements OnInit {
   ngOnInit()
   {}
 
-
 }

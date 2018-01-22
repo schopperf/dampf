@@ -12,6 +12,8 @@ import {GameDeleteComponent} from "./game-search/game-delete/game-delete.compone
 import {AuthGuard} from "./shared/auth/auth.guard";
 import {ProfileComponent} from "./profile/profile.component";
 import {AccountAddComponent} from "./account-search/account-add/account-add.component";
+import {AccountDeleteComponent} from "./account-search/account-delete/account-delete.component";
+import {AccountEditComponent} from "./account-search/account-edit/account-edit.component";
 
 export const APP_ROUTES: Routes = [
   {
@@ -37,6 +39,18 @@ export const APP_ROUTES: Routes = [
   {
     path: 'account-add',
     component: AccountAddComponent
+  },
+  {
+    path: 'account-edit/:id',
+    component: AccountEditComponent,
+    canActivate:[AuthGuard]
+
+  },
+  {
+    path: 'account-delete/:id',
+    component: AccountDeleteComponent,
+    canActivate:[AuthGuard]
+
   },
   //GAME
   {

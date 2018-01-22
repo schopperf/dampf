@@ -1,6 +1,7 @@
 <div *ngIf="account != undefined" class="container">
 
   <h2>Hello {{account.nickname}}!</h2>
+
   <table >
     <thead class="table table-contensed" >
     <tr>
@@ -27,5 +28,11 @@
 
 
   <button (click)="testClick()">Click</button>
-
+  <br>
+  <button
+    
+    [routerLink]="['/account-edit', account.id]"
+    class="btn btn-default">
+    Edit Account
+  </button>
 </div>
