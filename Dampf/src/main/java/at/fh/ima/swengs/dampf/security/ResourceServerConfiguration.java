@@ -36,6 +36,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         .antMatchers("/games/**","/accounts/**","/gameAccounts/**").access("hasRole('ADMIN') or hasRole('USER')")
         .antMatchers("/profile/**").access("hasRole('ADMIN')")
         .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
     }
 
 

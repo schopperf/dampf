@@ -27,6 +27,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+
  
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {

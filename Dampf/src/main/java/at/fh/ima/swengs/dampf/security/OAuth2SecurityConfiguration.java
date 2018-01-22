@@ -33,6 +33,7 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private Accounts acc;
+
      
     @Autowired
     public void globalAccountDetails(AuthenticationManagerBuilder auth) throws Exception {

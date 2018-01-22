@@ -16,4 +16,5 @@ public interface GameAccountRepository extends PagingAndSortingRepository<GameAc
             "FROM GameAccount ga INNER JOIN ga.account a " +
             "WHERE a.id = ?1")*/
     List<GameAccount> findByAccount_Id(@Param("Id")long id);
+
 }

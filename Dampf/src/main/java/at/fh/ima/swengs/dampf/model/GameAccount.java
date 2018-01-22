@@ -9,6 +9,7 @@ public class GameAccount {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
     @ManyToOne
     private Game game;
 

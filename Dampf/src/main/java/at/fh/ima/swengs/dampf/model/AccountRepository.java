@@ -10,6 +10,7 @@ package at.fh.ima.swengs.dampf.model;
 @RepositoryRestResource()
 public interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 
+
         List<Account> findByNicknameContaining(@Param("nickname") String nickname);
 
         List<Account> findByLoginNameAndPassword(@Param("loginName") String loginName, @Param("password") String password);
@@ -17,4 +18,5 @@ public interface AccountRepository extends PagingAndSortingRepository<Account, L
         Account findByNickname(@Param("nickname") String nickname);
 
         Account findById(@Param("id") long id);
+
 }
