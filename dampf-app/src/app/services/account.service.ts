@@ -47,4 +47,42 @@ export class AccountService{
       .get<Account>(url, {headers,params});
 
   }
+  public createAccount(nickname: string, loginName:string, email:string, registerDate:number)
+  {
+    let url = 'http://localhost:8080/accounts';
+
+    let headers = new HttpHeaders();
+    headers.set('Accept', 'application/json');
+
+
+
+    return this.http
+      .post(url,{nickname:nickname, loginName:loginName, email:email,registerDate:registerDate,
+        }, {headers:headers});
+  }
+
+
+  updateAccount(account: Account) {
+
+
+    let url = 'http://localhost:8080/accounts/' + account.id;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this
+      .http
+      .put(url, account,{headers});
+  }
+
+
+  deleteAccount(accountId: number)
+  {
+    let url = 'http://localhost:8080/accounts/' + accountId;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+
+
+
+    return this
+      .http
+      .delete(url, {headers});
+  }
 }

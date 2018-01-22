@@ -1,0 +1,47 @@
+<div class="container">
+
+  <form  #form="ngForm" >
+    <div class="text-danger" *ngIf="addForm.controls['nickname'].hasError('minlength')">
+      Please enter a nickname.        </div>
+    <div class="text-danger" *ngIf="addForm.controls['loginName'].hasError('pattern')">
+      Please enter a valid login name.
+    </div>
+    <div class="text-danger" *ngIf="addForm.controls['email'].hasError('pattern')">
+      Please enter a valid mail.
+    </div>
+    <div class="text-danger" *ngIf="addForm.controls['registerDate'].hasError('pattern')">
+      Please enter a valid date (dd.mm.yyyy)
+    </div>
+    <div class="form-group" [formGroup]="addForm">
+
+      <label>Nickname: </label> <br>
+      <input [(ngModel)]="nickname" name="nickname" formControlName="nickname" placeholder="nickname">
+
+    </div>
+
+
+    <div class="form-group" [formGroup]="addForm">
+      <label>Login Name: </label> <br>
+      <input [(ngModel)]="loginName" name="loginName" formControlName="loginName" placeholder="loginName">
+
+    </div>
+
+
+    <div class="form-group" [formGroup]="addForm">
+      <label>eMail:</label> <br>
+      <input [(ngModel)]="email" name="email" formControlName="email"  placeholder="email">
+
+    </div>
+
+    <div class="form-group" [formGroup]="addForm">
+      <label>Date of Registration:</label> <br>
+      <input [(ngModel)]="registerDate" name="registerDate"  formControlName="registerDate"  placeholder="registerDate">
+
+    </div>
+    <button [disabled]="!addForm.valid"
+            (click)="save()"
+            class="btn btn-default" >
+      Save
+    </button>
+  </form>
+</div>

@@ -20,6 +20,11 @@
         class="btn btn-default">
           Search
         </button>
+        <button
+          routerLink="/account-add"
+          class="btn btn-default">
+          Add Account
+        </button>
       </div>
     </form>
   </div>
@@ -42,7 +47,7 @@
       <td>{{account.nickname }}</td>
       <td>{{account.loginName }}</td>
       <td>{{account.email}}</td>
-      <td>{{account.registerDate | date:'dd.MM.yyyy HH:mm'}}</td>
+      <td>{{account.registerDate }}</td>
       <td>
         <a href="#" [routerLink]="['/account', account.id]">Show</a>
       </td>
